@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+//------------------------Code reference is taken  from https://datawanderings.com/2019/11/01/tutorial-making-an-interactive-line-chart-in-d3-js-v-5/----------------------//
     <meta charset="utf-8">
     <title>Multi Line Chart</title>
     <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
@@ -7,7 +8,10 @@
     <style></style>
 </head>
 <body>
+<p style="text-align:center">Multi Line Chart </p>
 <div id="container" class="svg-container"></div>
+<p>Frequency of Covid mutations(clade_membership) varying with time</p>
+
 <script>
     //------------------------1. PREPARATION------------------------//
     //-----------------------------SVG------------------------------//
@@ -62,8 +66,8 @@
             .scale(yScale);
 
         const xaxis = d3.axisBottom()
-            .ticks(d3.timeDay.every(20))
-            .tickFormat(d3.timeFormat('%b %d'))
+            .ticks(d3.timeDay.every(31))
+            .tickFormat(d3.timeFormat('%d %b %y'))
             .scale(xScale);
 
 //----------------------------LINES-----------------------------//
@@ -99,6 +103,7 @@
         svg.append("circle").attr("cx",900).attr("cy",70).attr("r", 6).style("fill", "#662266")
         svg.append("circle").attr("cx",900).attr("cy",90).attr("r", 6).style("fill", "#008ab8")
         svg.append("circle").attr("cx",900).attr("cy",110).attr("r", 6).style("fill", "#60720f")
+        svg.append("text").attr("x", 880).attr("y", 11).text("Clade Membership").style("font-size", "15px").attr("alignment-baseline","middle")
         svg.append("text").attr("x", 920).attr("y", 32).text("19A").style("font-size", "15px").attr("alignment-baseline","middle")
         svg.append("text").attr("x", 920).attr("y", 52).text("19B").style("font-size", "15px").attr("alignment-baseline","middle")
         svg.append("text").attr("x", 920).attr("y", 72).text("20A").style("font-size", "15px").attr("alignment-baseline","middle")
